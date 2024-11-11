@@ -1,13 +1,14 @@
 class Auto:
+    cantidadCreados = 0  # Initialize the class variable
+
     def __init__(self, modelo, precio, asientos, marca, motor, registro, cantidadCreados):
-        
         self.modelo = modelo
         self.precio = precio
         self.asientos = asientos
         self.marca = marca
         self.motor = motor
         self.registro = registro
-        Auto.cantidadCreados = cantidadCreados
+        Auto.cantidadCreados = cantidadCreados  # Set the class variable
 
     def cantidadAsientos(self):
         count = 0
@@ -15,7 +16,7 @@ class Auto:
             if isinstance(asiento, Asiento):
                 count += 1
         return count
-    
+
     def verificarIntegridad(self):
         registros_asientos = []
         registros_asientos.extend(
@@ -32,7 +33,7 @@ class Motor:
         self.cilindros = cilindros
         self.tipo = tipo
         self.registro = registro
-    
+
     def CambiarRegistro(self, nuevoRegristro):
         self.registro = nuevoRegristro
 
@@ -52,6 +53,3 @@ class Asiento:
         colores_permitidos = ["rojo", "verde", "amarillo", "negro", "blanco"]
         if nuevo_color in colores_permitidos:
             self.color = nuevo_color
-    
-    
-        

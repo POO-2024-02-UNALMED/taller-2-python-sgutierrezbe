@@ -1,14 +1,14 @@
 class Auto:
     cantidadCreados = 0  # Initialize the class variable
 
-    def __init__(self, modelo, precio, asientos, marca, motor, registro, cantidadCreados):
+    def __init__(self, modelo, precio, asientos, marca, motor, registro):
         self.modelo = modelo
         self.precio = precio
         self.asientos = asientos
         self.marca = marca
         self.motor = motor
         self.registro = registro
-        Auto.cantidadCreados = cantidadCreados  # Set the class variable
+        Auto.cantidadCreados += 1  # Increment the class variable
 
     def cantidadAsientos(self):
         count = 0
@@ -18,12 +18,11 @@ class Auto:
         return count
 
     def verificarIntegridad(self):
-        registros_asientos = []
-        registros_asientos.extend(
+        registros_asientos = set(
             asiento.registro for asiento in self.asientos if isinstance(asiento, Asiento)
         )
         if len(registros_asientos) == 1 and self.registro == self.motor.registro == registros_asientos.pop():
-            return "auto original"
+            return "Auto original"
         else:
             return "Las piezas no son originales"
 
@@ -34,8 +33,8 @@ class Motor:
         self.tipo = tipo
         self.registro = registro
 
-    def CambiarRegistro(self, nuevoRegristro):
-        self.registro = nuevoRegristro
+    def cambiarRegistro(self, nuevoRegistro):
+        self.registro = nuevoRegistro
 
     def asignarTipo(self, nuevoTipo):
         tipos_permitidos = ["gasolina", "electrico"]

@@ -1,14 +1,14 @@
 class Auto:
     cantidadCreados = 0  # Initialize the class variable
 
-    def __init__(self, modelo, precio, asientos, marca, motor, registro):
+    def __init__(self, modelo, precio, asientos, marca, motor, registro, cantidadCreados):
         self.modelo = modelo
         self.precio = precio
         self.asientos = asientos
         self.marca = marca
         self.motor = motor
         self.registro = registro
-        Auto.cantidadCreados += 1  # Increment the class variable
+        Auto.cantidadCreados = cantidadCreados  # Set the class variable
 
     def cantidadAsientos(self):
         count = 0
@@ -33,7 +33,7 @@ class Motor:
         self.tipo = tipo
         self.registro = registro
 
-    def cambiarRegistro(self, nuevoRegistro):
+    def CambiarRegistro(self, nuevoRegistro):
         self.registro = nuevoRegistro
 
     def asignarTipo(self, nuevoTipo):
